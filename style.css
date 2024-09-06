@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+:root{
+    --color-1:#0f0106;
+    --text-color:#fcfafa;
+    --accent-color:#D354B5;
+}
+*{
+    margin: 0%;
+    padding: 0%;
+}
+html{
+    font-size: 12pt;
+    font-family: poppins,Segoe UI, Tahoma, sans-serif;
+}
+body{
+    height: 100vh;
+    background-image: url(9327407.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+nav{
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.links-container{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+nav a{
+    height: 100%;
+    padding: 0 20px;
+    color: var(--text-color);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+nav a:hover{
+    background-color: var(--accent-color);
+}
+nav i{
+    color: var(--text-color);
+}
+nav .home-link{
+    margin-right: auto;
+}
+#sidebar-active{
+    display: none;
+}
+.open-sidebar-button,.close-sidebar-button{
+    
+    display: none;
+}
+@media(max-width: 500px){
+    .links-container{
+      flex-direction: column;
+      align-items: flex-start;
+  
+      position: fixed;
+      top: 0;
+      right: -100%;
+      z-index: 10;
+      width: 300px;
+    
+     background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      height: auto;
+      
+      box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.25);
+      transition: 0.7s ease-out;
+    }
+    nav a{
+      box-sizing: border-box;
+      height: auto;
+      width: 100%;
+      padding: 20px 30px;
+      justify-content: flex-start;
+    }
+    .open-sidebar-button, .close-sidebar-button{
+      padding: 20px;
+      display: block;
+    }
+    #sidebar-active:checked ~ .links-container{
+      right: 0;
+    }
+    #sidebar-active:checked ~ .open-sidebar-button{
+        display: none;
+    }
+    #sidebar-active:checked ~ #overlay{
+      height: 100%;
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 9;
+    }
+  }
